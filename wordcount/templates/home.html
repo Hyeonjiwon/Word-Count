@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    
+    <title>Cover Template · Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/cover/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet">
+  </head>
+
+  <body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header class="masthead mb-auto">
+            <div class="inner">
+                <br><br>
+            <h1 class="masthead-brand">Word Count</h1>
+            <nav class="nav nav-masthead justify-content-center">
+                <a class="nav-link active" href="{%url 'home'%}">Home</a>
+                <a class="nav-link" href="{%url 'about'%}">About</a>
+            </nav>
+            </div>
+        </header>
+        <br><br>
+        <main role="main" class="inner cover">
+            <div class="lead">
+                <form action = "{%url 'result'%}">
+                    <textarea id = "textArea" cols = "40" rows = "10" name = "fulltext"></textarea>           
+                    <br><br>          
+                    <input type = "submit" value = "Count" class="btn btn-lg btn-primary">                   
+                </form> 
+                <br>
+                <button id = "b" type="button" class="btn btn-secondary btn-lg">Reset</button>  
+            
+                <script>
+                    var text = document.querySelector('#textArea');
+                    var button = document.querySelector('#b');
+                    /*리셋 버튼 추가 : 아무 내용이 없으면 없다고 알림*/
+                    button.addEventListener('click', function() {
+                        if(text.value == '') {
+                            alert("지울 내용이 없습니다!")
+                        }
+                        else {
+                            alert("입력하신 내용을 지우시겠습니까?")
+                            text.value = '';
+                        }
+                    }, false);
+                </script>
+            </div>
+        </main>
+        <br>
+        <footer class="mastfoot mt-auto">
+            <div class="inner">
+            <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+            </div>
+        </footer>
+    </div>
+  </body>
+</html>
